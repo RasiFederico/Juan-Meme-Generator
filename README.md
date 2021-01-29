@@ -8,3 +8,7 @@ Just run the file, download only if you don't have the folder anymore, and then 
 
 If you want to save it youneed to type in a path. For example: "C:\Users\Username\Desktop"
 Then the programm will save your image as <NAME OF THE ANIMAL>.jpg. For example "Carlos.jpg or Pablo.jpg"
+
+![Alt text](/ExampleImages/Albert.jpg?raw=true "Title")
+![Alt text](/ExampleImages/Antonio.jpg?raw=true "Title")
+![Alt text](/ExampleImages/Miguel.jpg?raw=true "Title")
