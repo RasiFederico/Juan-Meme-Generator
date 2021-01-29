@@ -1,6 +1,6 @@
 # Juan-Meme-Generator
 ## Requirements
-To use this programm you need to install a few libraries:
+To use this program you need to install a few libraries:
 - Bing Image Downloader (bing_image_downloader)
 - PIL (pillow)
 
