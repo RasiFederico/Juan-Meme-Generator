@@ -1,6 +1,11 @@
 # Juan-Meme-Generator
-## An app that generates Juan-like memes googling "Animals stuck in weird places" and adding a common spanish name. LOL
+## Requirements
+To use this programm you need to install a few libraries:
+- Bing Image Downloader (bing_image_downloader)
+- PIL (pillow)
 
+
+## An app that generates Juan-like memes googling "Animals stuck in weird places" and adding a common spanish name. LOL
 Welcome to Juan Meme Generator v1.0 made by Federico Rasi
 This app can make weird images similar to the horse 'Juan Meme'
 
