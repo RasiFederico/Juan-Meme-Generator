@@ -3,7 +3,9 @@ from bing_image_downloader import downloader
 import random
 from random import randrange
 import os
+from os import path
 
+#Animal stuck in weird places
 query_string = "Animal stuck in weird places"
 
 def getRandomFile():
@@ -36,10 +38,12 @@ def final(image, name):
 
         if command.upper() == "SAVE":
             saveFile(image, name)
+            redo()
             break
 
         elif command.upper() == "SHOW":
             showImage(image)
+            redo()
             break
 
         else:
@@ -57,20 +61,60 @@ def renderImage():
     image_editable.text((((width/2) - int(width/10)),eight - (eight / 4)), title_text, (255, 255, 255), font=title_font)
     final(my_image, my_name)
 
-while True:
-    print("Welcome to Juan Meme Generator v1.0 made by Federico Rasi")
-    print("This app can make a weird image similar to the horse 'Juan Meme'")
-    command = input("\nDo you want to download the images? ! CHOOSE 'YES' ONLY IF YOU DON'T HAVE THE 'ImgRAW' FOLDER ANYMORE ! (y/n): ")
+def checkFiles():
+    
+    for i in range(len(getAllFiles())):
+        correctName = "Image_" + str(i + 1)
+        if getAllFiles()[i] == correctName:
+            continue
+        
+        else:
+            getAllFiles()[i] = correctName
 
-    if command.upper() == "Y":
-        downloadImages(query_string)
-        renderImage()
-        break
 
-    elif command.upper() == "N":
-        renderImage()
-        break
+def checkForDownload():
+
+    if path.exists('\\'.join(__file__.split('\\')[0:-1]) + "\\ImgRAW\\" + query_string) == True:      
+
+        allFiles = os.listdir('\\'.join(__file__.split('\\')[0:-1]) + "\\ImgRAW\\" + query_string)
+        if len(allFiles) < 10:
+            return True 
+
+        else:
+            return False    
+
 
     else:
-        print("\n Wrong command, try again.\n")
-        continue
+        return True
+
+
+def main():
+
+    if checkForDownload() == True:
+        downloadImages(query_string)
+        checkFiles()
+        renderImage()
+
+    else:
+        checkFiles()
+        renderImage()
+
+
+def redo():
+
+    while True:
+        command = input("\nDo you want to create another meme? (y/n): ")
+        
+        if command.upper() == "Y":
+            main()
+
+        elif command.upper() == "N":
+            exit()
+        
+        else:
+            print("\nWrong command, try again!")
+
+
+print("Welcome to Juan Meme Generator v1.0 made by Federico Rasi")
+print("This app can make a weird image similar to the horse 'Juan Meme'")
+main()
